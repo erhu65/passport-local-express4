@@ -5,7 +5,7 @@ const Account = require("../models/account.js");
 describe('Account', () => {
 
     before((done) => {
-        const db = mongoose.connect('mongodb://admin:admin123@erhu65.server1.com.tw:27017/admin');
+        const db = mongoose.connect('mongodb://admin:admin123@local.bonray.com.tw:27017/admin');
         done();
     });
 

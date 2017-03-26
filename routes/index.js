@@ -13,7 +13,7 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', (req, res, next) => {
-    Account.register(new Account({ username : req.body.username }), req.body.password, (err, account) => {
+    Account.register(new Account({ account : req.body.username }), req.body.password, (err, account) => {
         if (err) {
           return res.render('register', { error : err.message });
         }
@@ -73,8 +73,10 @@ function isAuthenticated(req, res, next) {
     // do any checks you want to in here
     // CHECK THE USER STORED IN SESSION FOR A CUSTOM VARIABLE
     // you can do this however you want with whatever variables you set up
-    if (req.user) {
+    console.log("isAuthenticated, req.user:");
+    console.log(req.user);
 
+    if (req.user) {
         return next();
     } else {
         res.redirect('/login');
